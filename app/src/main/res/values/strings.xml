@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Whatsapp Groups List</string>
+    <string name="title_activity_whatsapp_home_screen">Whatsapp Group List</string>
+    <string name="title_activity_group_list">List of Groups</string>
+    <string name="join_group">Join Group</string>
+    <string name="title_activity_detailed_groups">DetailedGroups</string>
+    <string name="title_activity_search">SearchActivity</string>
+</resources>
