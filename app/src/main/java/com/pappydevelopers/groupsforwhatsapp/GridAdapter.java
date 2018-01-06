@@ -1,10 +1,6 @@
-package com.gappydevelopers.unlimitedwhatsappgroups;
+package com.pappydevelopers.groupsforwhatsapp;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +19,7 @@ final class GridAdapter extends BaseAdapter {
         mInflater = LayoutInflater.from(context);
 
         mItems.add(new Item("All",       R.drawable.all));
-        mItems.add(new Item("Friendship & Dating",   R.drawable.friendship));
+        mItems.add(new Item("Friendship & Love",   R.drawable.friendship));
         mItems.add(new Item("Educational", R.drawable.education));
         mItems.add(new Item("News",      R.drawable.news));
         mItems.add(new Item("Sports",     R.drawable.sports));

@@ -3,7 +3,7 @@
 android:layout_width="match_parent"
 android:layout_height="match_parent">
 
-<com.gappydevelopers.unlimitedwhatsappgroups.SquareImageView
+<com.pappydevelopers.groupsforwhatsapp.SquareImageView
     android:id="@+id/picture"
     android:layout_width="match_parent"
     android:layout_height="match_parent"

@@ -1,22 +1,20 @@
-package com.gappydevelopers.unlimitedwhatsappgroups;
+package com.pappydevelopers.groupsforwhatsapp;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
+import android.database.Cursor;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.ListView;
+
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,11 +23,14 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static com.pappydevelopers.groupsforwhatsapp.WhatsappListAdapter.context;
+
 public class DetailedGroups extends AppCompatActivity {
 
     private static final int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 1;
     ArrayList<WhatsappModel> whatsappModelArrayList;
     String group_name;
+    private AdView mAdView;
     private RecyclerView recyclerView;
     WhatsappListAdapter whatsappListAdapter;
     String group_category;
@@ -44,13 +45,14 @@ public class DetailedGroups extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+
         if(getIntent().hasExtra("title"))
             group_name = getIntent().getStringExtra("title");
 
 
 
         if (group_name.equals("friend")) {
-            this.group_category = "Friendship & Dating";
+            this.group_category = "Friendship & Love";
         } else if (group_name.equals("education")) {
             this.group_category = "Education";
         } else if (group_name.equals("news")) {
@@ -72,59 +74,32 @@ public class DetailedGroups extends AppCompatActivity {
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        checkpermission();
-
-    }
-
-
-    public void checkpermission() {
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.READ_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(this,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-
-
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                    MY_PERMISSIONS_REQUEST_READ_CONTACTS);
-
-
-        } else {
-            try {
-                readFile1(getApplicationContext());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        try {
+            readFile1(this);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
-    }
-
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
-        switch (requestCode) {
-            case MY_PERMISSIONS_REQUEST_READ_CONTACTS: {
-                // If request is cancelled, the result arrays are empty.
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    try {
-                        readFile1(getApplicationContext());
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
-                } else {
-                    try {
-                        readFile1(getApplicationContext());
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-                return;
+        mAdView = findViewById(R.id.adView);
+        MobileAds.initialize(getApplicationContext(),
+                getString(R.string.ad_id));
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+        mAdView.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                System.out.println("Hello I am ad");
             }
-        }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                System.out.println("Hello I amwklwjwqwqjljwqjwqjw ad");
+            }
+        });
+
+
+
+
     }
 
     private void readFile1(final Context context) throws IOException {
@@ -166,7 +141,7 @@ public class DetailedGroups extends AppCompatActivity {
 
 
             if (group_name.equals("friend")) {
-                setTitle("Friendship & Dating (" + whatsappModelArrayList.size() + ")");
+                setTitle("Friendship & Love (" + whatsappModelArrayList.size() + ")");
             } else if (group_name.equals("education")) {
                 setTitle("Educational (" + whatsappModelArrayList.size() + ")");
             } else if (group_name.equals("news")) {
@@ -183,6 +158,9 @@ public class DetailedGroups extends AppCompatActivity {
             Collections.shuffle(whatsappModelArrayList);
             whatsappListAdapter = new WhatsappListAdapter(whatsappModelArrayList, context);
             recyclerView.setAdapter(whatsappListAdapter);
+
+
+
         }
     }
 

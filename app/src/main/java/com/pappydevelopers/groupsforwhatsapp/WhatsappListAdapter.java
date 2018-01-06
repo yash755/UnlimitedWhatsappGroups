@@ -1,4 +1,4 @@
-package com.gappydevelopers.unlimitedwhatsappgroups;
+package com.pappydevelopers.groupsforwhatsapp;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,10 +7,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -22,12 +20,11 @@ public class WhatsappListAdapter extends RecyclerView.Adapter<WhatsappListAdapte
 
     private ArrayList<WhatsappModel> dataSet;
     public ImageLoader imageLoader;
-    Context mContext;
+    static Context context;
 
 
     public WhatsappListAdapter(ArrayList<WhatsappModel> data, Context context) {
         this.dataSet = data;
-        this.mContext = context;
         imageLoader = new ImageLoader(context);
 
     }
@@ -49,18 +46,33 @@ public class WhatsappListAdapter extends RecyclerView.Adapter<WhatsappListAdapte
         holder.category.setText(issuedBooksModel.getGp_category().toString());
         holder.name.setText(issuedBooksModel.getGp_name().toString());
 
-        ImageView image = holder.group_image;
-        imageLoader.DisplayImage(issuedBooksModel.getGp_image(), image);
+
+        if (issuedBooksModel.getGp_category().toString().equals("Friendship & Dating")) {
+            holder.group_image.setImageResource(R.drawable.friendship);
+        } else if (issuedBooksModel.getGp_category().toString().equals("Education")) {
+            holder.group_image.setImageResource(R.drawable.education);
+        } else if (issuedBooksModel.getGp_category().toString().equals("News")) {
+            holder.group_image.setImageResource(R.drawable.news);
+        } else if (issuedBooksModel.getGp_category().toString().equals("Sports")) {
+            holder.group_image.setImageResource(R.drawable.sports);
+        } else if (issuedBooksModel.getGp_category().toString().equals("Adult 18+")) {
+            holder.group_image.setImageResource(R.drawable.adult);
+        } else if (issuedBooksModel.getGp_category().toString().equals("Health & Fitness")) {
+            holder.group_image.setImageResource(R.drawable.clubs);
+        } else if (issuedBooksModel.getGp_category().toString().equals("All Groups")) {
+            holder.group_image.setImageResource(R.drawable.all);
+        }
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, JoinGroup.class);
+                Intent intent = new Intent(context, JoinGroup.class);
                 intent.putExtra("link", issuedBooksModel.getGp_link());
                 intent.putExtra("name", issuedBooksModel.getGp_name());
                 intent.putExtra("image", issuedBooksModel.getGp_image());
                 intent.putExtra("category", issuedBooksModel.getGp_category());
-                mContext.startActivity(intent);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
             }
         });
 
@@ -80,6 +92,7 @@ public class WhatsappListAdapter extends RecyclerView.Adapter<WhatsappListAdapte
 
         public WhatsappListViewHolder(View itemView) {
             super(itemView);
+            context = itemView.getContext();
             category= (TextView) itemView.findViewById(R.id.category);
             name = (TextView) itemView.findViewById(R.id.name);
             group_image = (ImageView) itemView.findViewById(R.id.group_image);

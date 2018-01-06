@@ -1,4 +1,4 @@
-package com.gappydevelopers.unlimitedwhatsappgroups;
+package com.pappydevelopers.groupsforwhatsapp;
 
 import android.content.Context;
 

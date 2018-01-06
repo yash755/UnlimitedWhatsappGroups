@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.gappydevelopers.unlimitedwhatsappgroups.SearchActivity">
+    tools:context="com.pappydevelopers.groupsforwhatsapp.SearchActivity">
+
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -14,17 +15,21 @@
         <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
             app:layout_scrollFlags="scroll|enterAlways"
             android:id="@+id/toolbar"
             android:background="@color/colorPrimary">
-            <SearchView
-                android:id="@+id/mySearchView"
-                android:layout_width="wrap_content"
+
+            <AutoCompleteTextView
+                android:id="@+id/search_story"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:iconifiedByDefault="true"
-                android:queryHint="Search Groups....."/>
+                android:layout_alignParentLeft="true"
+                android:padding="10dp"
+                android:inputType="text"
+                android:popupBackground="#000000"
+                android:hint="Enter keyword (Ex: Fun)">
+                <requestFocus />
+            </AutoCompleteTextView>
 
         </android.support.v7.widget.Toolbar>
 
