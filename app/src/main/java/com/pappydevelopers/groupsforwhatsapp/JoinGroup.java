@@ -88,21 +88,7 @@ public class JoinGroup extends AppCompatActivity implements RewardedVideoAdListe
 
         rewards.setText(" You have " + reward.toString() + " reward points.");
 
-        if (category.equals("Friendship & Love")) {
-            group_image.setImageResource(R.drawable.friendship);
-        } else if (category.equals("Education")) {
-            group_image.setImageResource(R.drawable.education);
-        } else if (category.equals("News")) {
-            group_image.setImageResource(R.drawable.news);
-        } else if (category.equals("Sports")) {
-            group_image.setImageResource(R.drawable.sports);
-        } else if (category.equals("Adult 18+")) {
-            group_image.setImageResource(R.drawable.adult);
-        } else if (category.equals("Health & Fitness")) {
-            group_image.setImageResource(R.drawable.clubs);
-        } else if (category.equals("All Groups")) {
-            group_image.setImageResource(R.drawable.all);
-        }
+
 
 
         button.setOnClickListener(new View.OnClickListener() {
