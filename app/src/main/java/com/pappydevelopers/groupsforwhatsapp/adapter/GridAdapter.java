@@ -1,4 +1,4 @@
-package com.pappydevelopers.groupsforwhatsapp;
+package com.pappydevelopers.groupsforwhatsapp.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,10 +8,12 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.pappydevelopers.groupsforwhatsapp.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
-final class GridAdapter extends BaseAdapter {
+public class GridAdapter extends BaseAdapter {
     private final List<Item> mItems = new ArrayList<Item>();
     private final LayoutInflater mInflater;
 

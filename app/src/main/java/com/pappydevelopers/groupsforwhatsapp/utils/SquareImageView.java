@@ -1,4 +1,4 @@
-package com.pappydevelopers.groupsforwhatsapp;
+package com.pappydevelopers.groupsforwhatsapp.utils;
 
 import android.content.Context;
 import android.util.AttributeSet;

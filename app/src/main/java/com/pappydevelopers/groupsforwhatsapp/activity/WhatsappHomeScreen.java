@@ -1,11 +1,8 @@
-package com.pappydevelopers.groupsforwhatsapp;
+package com.pappydevelopers.groupsforwhatsapp.activity;
 
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
-import android.content.res.AssetManager;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -20,20 +17,12 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.Collections;
-
-import dmax.dialog.SpotsDialog;
-
-import static com.pappydevelopers.groupsforwhatsapp.WhatsappListAdapter.context;
+import com.pappydevelopers.groupsforwhatsapp.adapter.GridAdapter;
+import com.pappydevelopers.groupsforwhatsapp.R;
 
 public class WhatsappHomeScreen extends AppCompatActivity {
 
-    DataBaseHelper dataBaseHelper;
+
     AlertDialog dialog;
     private AdView mAdView;
     String[] list_name = {"all","friend","education","news","sports","18plus","health","search"};
@@ -45,14 +34,6 @@ public class WhatsappHomeScreen extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setTitle("Join Whatsapp Groups");
-
-        dataBaseHelper = new DataBaseHelper(this);
-
-        Cursor cr = dataBaseHelper.getReward();
-
-        if(cr.getCount() <= 0) {
-            dataBaseHelper.insertReward(6);
-        }
 
 
         mAdView = findViewById(R.id.adView);

@@ -1,4 +1,4 @@
-package com.pappydevelopers.groupsforwhatsapp;
+package com.pappydevelopers.groupsforwhatsapp.model;
 
 /**
  * Created by yash on 17/9/17.

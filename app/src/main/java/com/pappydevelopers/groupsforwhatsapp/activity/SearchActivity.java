@@ -1,9 +1,8 @@
-package com.pappydevelopers.groupsforwhatsapp;
+package com.pappydevelopers.groupsforwhatsapp.activity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
-import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +17,10 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.SearchView;
 import android.view.View;
+
+import com.pappydevelopers.groupsforwhatsapp.R;
+import com.pappydevelopers.groupsforwhatsapp.adapter.WhatsappListAdapter;
+import com.pappydevelopers.groupsforwhatsapp.model.WhatsappModel;
 
 import java.io.BufferedReader;
 import java.io.IOException;

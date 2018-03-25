@@ -1,4 +1,4 @@
-package com.pappydevelopers.groupsforwhatsapp;
+package com.pappydevelopers.groupsforwhatsapp.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.pappydevelopers.groupsforwhatsapp.R;
+import com.pappydevelopers.groupsforwhatsapp.model.WhatsappModel;
+import com.pappydevelopers.groupsforwhatsapp.activity.JoinGroup;
+
 import java.util.ArrayList;
 
 /**
@@ -19,13 +23,12 @@ import java.util.ArrayList;
 public class WhatsappListAdapter extends RecyclerView.Adapter<WhatsappListAdapter.WhatsappListViewHolder>{
 
     private ArrayList<WhatsappModel> dataSet;
-    public ImageLoader imageLoader;
     static Context context;
 
 
     public WhatsappListAdapter(ArrayList<WhatsappModel> data, Context context) {
         this.dataSet = data;
-        imageLoader = new ImageLoader(context);
+
 
     }
 

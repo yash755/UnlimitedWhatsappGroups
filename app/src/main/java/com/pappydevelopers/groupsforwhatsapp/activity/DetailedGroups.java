@@ -1,9 +1,8 @@
-package com.pappydevelopers.groupsforwhatsapp;
+package com.pappydevelopers.groupsforwhatsapp.activity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -15,6 +14,9 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.pappydevelopers.groupsforwhatsapp.R;
+import com.pappydevelopers.groupsforwhatsapp.adapter.WhatsappListAdapter;
+import com.pappydevelopers.groupsforwhatsapp.model.WhatsappModel;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -22,8 +24,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
-
-import static com.pappydevelopers.groupsforwhatsapp.WhatsappListAdapter.context;
 
 public class DetailedGroups extends AppCompatActivity {
 

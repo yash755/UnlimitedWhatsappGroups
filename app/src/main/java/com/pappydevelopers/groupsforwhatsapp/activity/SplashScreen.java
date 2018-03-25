@@ -1,10 +1,11 @@
-package com.pappydevelopers.groupsforwhatsapp;
+package com.pappydevelopers.groupsforwhatsapp.activity;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.pappydevelopers.groupsforwhatsapp.R;
 
 public class SplashScreen extends AppCompatActivity {
 

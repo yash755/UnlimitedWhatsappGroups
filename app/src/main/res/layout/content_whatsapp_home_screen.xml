@@ -6,7 +6,7 @@
     android:background="@drawable/whatsapp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.pappydevelopers.groupsforwhatsapp.WhatsappHomeScreen"
+    tools:context="com.pappydevelopers.groupsforwhatsapp.activity.WhatsappHomeScreen"
     tools:showIn="@layout/activity_whatsapp_home_screen">
 
     <GridView
@@ -15,6 +15,7 @@
         android:layout_height="match_parent"
         android:verticalSpacing="0dp"
         android:horizontalSpacing="0dp"
+        android:layout_marginBottom="50dp"
         android:stretchMode="columnWidth"
         android:numColumns="2"/>
 
