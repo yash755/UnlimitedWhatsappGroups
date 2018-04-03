@@ -98,14 +98,4 @@ public class JoinGroup extends AppCompatActivity{
     public void onResume() {
         super.onResume();
     }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
 }

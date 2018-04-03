@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Whatsapp Groups List</string>
+    <string name="app_name">Groups for WhatsApp</string>
     <string name="title_activity_whatsapp_home_screen">Whatsapp Group List</string>
     <string name="title_activity_group_list">List of Groups</string>
     <string name="join_group">Join Group</string>
@@ -12,7 +12,7 @@
     <string name="reward_ad">ca-app-pub-1488849187979139/7366964769</string>
     <string name="int_ad">ca-app-pub-1488849187979139/2758022952</string>
 
-   <!-- <string name="ad_id">ca-app-pub-3940256099942544/6300978111</string>
+<!--    <string name="ad_id">ca-app-pub-3940256099942544/6300978111</string>
     <string name="banner_ad">ca-app-pub-3940256099942544/6300978111</string>
     <string name="reward_ad">ca-app-pub-3940256099942544/5224354917</string>
     <string name="int_ad">ca-app-pub-3940256099942544/1033173712</string>-->

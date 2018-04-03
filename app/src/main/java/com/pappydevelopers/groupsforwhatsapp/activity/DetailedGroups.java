@@ -174,5 +174,14 @@ public class DetailedGroups extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        Intent intent = new Intent(DetailedGroups.this, WhatsappHomeScreen.class);
+        intent.putExtra("title", "all");
+        startActivity(intent);
+    }
+
 }
 
